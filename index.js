@@ -10,7 +10,7 @@
 /******/ 		var moduleId, chunkId, i = 0, resolves = [];
 /******/ 		for(;i < chunkIds.length; i++) {
 /******/ 			chunkId = chunkIds[i];
-/******/ 			if(installedChunks[chunkId]) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
 /******/ 				resolves.push(installedChunks[chunkId][0]);
 /******/ 			}
 /******/ 			installedChunks[chunkId] = 0;
@@ -52,185 +52,209 @@
 /******/ 	function promiseResolve() { return Promise.resolve(); }
 /******/
 /******/ 	var wasmImportObjects = {
-/******/ 		"./wasm/client_bg.wasm": function() {
+/******/ 		"./wasm/game_bg.wasm": function() {
 /******/ 			return {
-/******/ 				"./client": {
+/******/ 				"./game.js": {
 /******/ 					"__wbindgen_object_drop_ref": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbindgen_object_drop_ref"](p0i32);
-/******/ 					},
-/******/ 					"__widl_f_create_program_WebGL2RenderingContext": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_create_program_WebGL2RenderingContext"](p0i32);
-/******/ 					},
-/******/ 					"__widl_f_attach_shader_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_attach_shader_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__widl_f_link_program_WebGL2RenderingContext": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_link_program_WebGL2RenderingContext"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__widl_f_get_program_parameter_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_get_program_parameter_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__wbindgen_boolean_get": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbindgen_boolean_get"](p0i32);
-/******/ 					},
-/******/ 					"__widl_f_get_program_info_log_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_get_program_info_log_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__widl_f_create_shader_WebGL2RenderingContext": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_create_shader_WebGL2RenderingContext"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__widl_f_shader_source_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_shader_source_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
-/******/ 					},
-/******/ 					"__widl_f_compile_shader_WebGL2RenderingContext": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_compile_shader_WebGL2RenderingContext"](p0i32,p1i32);
-/******/ 					},
-/******/ 					"__widl_f_get_shader_parameter_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_get_shader_parameter_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__widl_f_get_shader_info_log_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_get_shader_info_log_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
-/******/ 					},
-/******/ 					"__widl_f_get_uniform_location_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_get_uniform_location_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
-/******/ 					},
-/******/ 					"__wbindgen_object_clone_ref": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbindgen_object_clone_ref"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbindgen_object_drop_ref"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_now_Performance": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_now_Performance"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_now_Performance"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_clear_color_WebGL2RenderingContext": function(p0i32,p1f32,p2f32,p3f32,p4f32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_clear_color_WebGL2RenderingContext"](p0i32,p1f32,p2f32,p3f32,p4f32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_clear_color_WebGL2RenderingContext"](p0i32,p1f32,p2f32,p3f32,p4f32);
 /******/ 					},
 /******/ 					"__widl_f_clear_depth_WebGL2RenderingContext": function(p0i32,p1f32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_clear_depth_WebGL2RenderingContext"](p0i32,p1f32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_clear_depth_WebGL2RenderingContext"](p0i32,p1f32);
 /******/ 					},
 /******/ 					"__widl_f_clear_WebGL2RenderingContext": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_clear_WebGL2RenderingContext"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_clear_WebGL2RenderingContext"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__widl_f_client_width_Element": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_client_width_Element"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_client_width_Element"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_client_height_Element": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_client_height_Element"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_client_height_Element"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_width_HTMLCanvasElement": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_width_HTMLCanvasElement"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_width_HTMLCanvasElement"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_height_HTMLCanvasElement": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_height_HTMLCanvasElement"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_height_HTMLCanvasElement"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_set_width_HTMLCanvasElement": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_set_width_HTMLCanvasElement"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_set_width_HTMLCanvasElement"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__widl_f_set_height_HTMLCanvasElement": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_set_height_HTMLCanvasElement"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_set_height_HTMLCanvasElement"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__widl_f_viewport_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32,p4i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_viewport_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32,p4i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_viewport_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32,p4i32);
 /******/ 					},
 /******/ 					"__widl_f_bind_vertex_array_WebGL2RenderingContext": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_bind_vertex_array_WebGL2RenderingContext"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_bind_vertex_array_WebGL2RenderingContext"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__wbindgen_memory": function() {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbindgen_memory"]();
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbindgen_memory"]();
 /******/ 					},
-/******/ 					"__wbg_instanceof_Memory_ed5a1f7b9a0e05a3": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbg_instanceof_Memory_ed5a1f7b9a0e05a3"](p0i32);
+/******/ 					"__wbg_instanceof_Memory_ba72e60cdfd2f46c": function(p0i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_instanceof_Memory_ba72e60cdfd2f46c"](p0i32);
 /******/ 					},
-/******/ 					"__wbg_buffer_efdca35786c3eb75": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbg_buffer_efdca35786c3eb75"](p0i32);
+/******/ 					"__wbg_buffer_89a8560ab6a3d9c6": function(p0i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_buffer_89a8560ab6a3d9c6"](p0i32);
 /******/ 					},
-/******/ 					"__wbg_new_f49b071a6847bcff": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbg_new_f49b071a6847bcff"](p0i32);
+/******/ 					"__wbg_new_98aa94a216dab412": function(p0i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_new_98aa94a216dab412"](p0i32);
 /******/ 					},
-/******/ 					"__wbg_subarray_f8934b42fec7ca7c": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbg_subarray_f8934b42fec7ca7c"](p0i32,p1i32,p2i32);
+/******/ 					"__wbg_subarray_724409f7b114b56a": function(p0i32,p1i32,p2i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_subarray_724409f7b114b56a"](p0i32,p1i32,p2i32);
 /******/ 					},
 /******/ 					"__widl_f_bind_buffer_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_bind_buffer_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_bind_buffer_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
 /******/ 					},
 /******/ 					"__widl_f_vertex_attrib_pointer_with_i32_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32,p4i32,p5i32,p6i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_vertex_attrib_pointer_with_i32_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32,p4i32,p5i32,p6i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_vertex_attrib_pointer_with_i32_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32,p4i32,p5i32,p6i32);
 /******/ 					},
 /******/ 					"__widl_f_buffer_data_with_array_buffer_view_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_buffer_data_with_array_buffer_view_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_buffer_data_with_array_buffer_view_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
 /******/ 					},
 /******/ 					"__widl_f_enable_vertex_attrib_array_WebGL2RenderingContext": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_enable_vertex_attrib_array_WebGL2RenderingContext"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_enable_vertex_attrib_array_WebGL2RenderingContext"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__widl_f_use_program_WebGL2RenderingContext": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_use_program_WebGL2RenderingContext"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_use_program_WebGL2RenderingContext"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__widl_f_uniform_matrix4fv_with_f32_array_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32,p4i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_uniform_matrix4fv_with_f32_array_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32,p4i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_uniform_matrix4fv_with_f32_array_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32,p4i32);
 /******/ 					},
 /******/ 					"__widl_f_uniform3f_WebGL2RenderingContext": function(p0i32,p1i32,p2f32,p3f32,p4f32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_uniform3f_WebGL2RenderingContext"](p0i32,p1i32,p2f32,p3f32,p4f32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_uniform3f_WebGL2RenderingContext"](p0i32,p1i32,p2f32,p3f32,p4f32);
 /******/ 					},
 /******/ 					"__widl_f_draw_arrays_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_draw_arrays_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_draw_arrays_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
 /******/ 					},
 /******/ 					"__widl_f_uniform4fv_with_f32_array_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_uniform4fv_with_f32_array_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_uniform4fv_with_f32_array_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
 /******/ 					},
 /******/ 					"__wbindgen_number_new": function(p0f64) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbindgen_number_new"](p0f64);
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbindgen_number_new"](p0f64);
 /******/ 					},
 /******/ 					"__wbindgen_string_new": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbindgen_string_new"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbindgen_string_new"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__widl_f_log_2_": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_log_2_"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_log_2_"](p0i32,p1i32);
+/******/ 					},
+/******/ 					"__widl_f_log_1_": function(p0i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_log_1_"](p0i32);
+/******/ 					},
+/******/ 					"__wbg_new_59cb74e423758ede": function() {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_new_59cb74e423758ede"]();
+/******/ 					},
+/******/ 					"__wbg_stack_558ba5917b466edd": function(p0i32,p1i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_stack_558ba5917b466edd"](p0i32,p1i32);
+/******/ 					},
+/******/ 					"__wbg_error_4bb6c2a97407129a": function(p0i32,p1i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_error_4bb6c2a97407129a"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__widl_f_document_Window": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_document_Window"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_document_Window"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_get_element_by_id_Document": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_get_element_by_id_Document"](p0i32,p1i32,p2i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_get_element_by_id_Document"](p0i32,p1i32,p2i32);
 /******/ 					},
 /******/ 					"__widl_instanceof_HTMLCanvasElement": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_instanceof_HTMLCanvasElement"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_instanceof_HTMLCanvasElement"](p0i32);
 /******/ 					},
-/******/ 					"__widl_f_get_context_HTMLCanvasElement": function(p0i32,p1i32,p2i32,p3i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_get_context_HTMLCanvasElement"](p0i32,p1i32,p2i32,p3i32);
+/******/ 					"__widl_f_get_context_HTMLCanvasElement": function(p0i32,p1i32,p2i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_get_context_HTMLCanvasElement"](p0i32,p1i32,p2i32);
 /******/ 					},
 /******/ 					"__widl_instanceof_WebGL2RenderingContext": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_instanceof_WebGL2RenderingContext"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_instanceof_WebGL2RenderingContext"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_create_vertex_array_WebGL2RenderingContext": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_create_vertex_array_WebGL2RenderingContext"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_create_vertex_array_WebGL2RenderingContext"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_create_buffer_WebGL2RenderingContext": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_create_buffer_WebGL2RenderingContext"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_create_buffer_WebGL2RenderingContext"](p0i32);
 /******/ 					},
 /******/ 					"__widl_f_enable_WebGL2RenderingContext": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_enable_WebGL2RenderingContext"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_enable_WebGL2RenderingContext"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__widl_f_depth_func_WebGL2RenderingContext": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_depth_func_WebGL2RenderingContext"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_depth_func_WebGL2RenderingContext"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__widl_f_performance_Window": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_f_performance_Window"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_performance_Window"](p0i32);
 /******/ 					},
-/******/ 					"__wbg_error_cc95a3d302735ca3": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbg_error_cc95a3d302735ca3"](p0i32,p1i32);
+/******/ 					"__widl_f_create_program_WebGL2RenderingContext": function(p0i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_create_program_WebGL2RenderingContext"](p0i32);
 /******/ 					},
-/******/ 					"__wbg_newnoargs_43c5f57b77232284": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbg_newnoargs_43c5f57b77232284"](p0i32,p1i32);
+/******/ 					"__widl_f_attach_shader_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_attach_shader_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
 /******/ 					},
-/******/ 					"__wbg_call_7ac13208e630ddeb": function(p0i32,p1i32,p2i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbg_call_7ac13208e630ddeb"](p0i32,p1i32,p2i32);
+/******/ 					"__widl_f_link_program_WebGL2RenderingContext": function(p0i32,p1i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_link_program_WebGL2RenderingContext"](p0i32,p1i32);
 /******/ 					},
-/******/ 					"__widl_instanceof_Window": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__widl_instanceof_Window"](p0i32);
+/******/ 					"__widl_f_get_program_parameter_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_get_program_parameter_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
+/******/ 					},
+/******/ 					"__wbindgen_boolean_get": function(p0i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbindgen_boolean_get"](p0i32);
+/******/ 					},
+/******/ 					"__widl_f_get_program_info_log_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_get_program_info_log_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
+/******/ 					},
+/******/ 					"__widl_f_create_shader_WebGL2RenderingContext": function(p0i32,p1i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_create_shader_WebGL2RenderingContext"](p0i32,p1i32);
+/******/ 					},
+/******/ 					"__widl_f_shader_source_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_shader_source_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
+/******/ 					},
+/******/ 					"__widl_f_compile_shader_WebGL2RenderingContext": function(p0i32,p1i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_compile_shader_WebGL2RenderingContext"](p0i32,p1i32);
+/******/ 					},
+/******/ 					"__widl_f_get_shader_parameter_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_get_shader_parameter_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
+/******/ 					},
+/******/ 					"__widl_f_get_shader_info_log_WebGL2RenderingContext": function(p0i32,p1i32,p2i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_get_shader_info_log_WebGL2RenderingContext"](p0i32,p1i32,p2i32);
+/******/ 					},
+/******/ 					"__wbindgen_object_clone_ref": function(p0i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbindgen_object_clone_ref"](p0i32);
+/******/ 					},
+/******/ 					"__widl_f_get_uniform_location_WebGL2RenderingContext": function(p0i32,p1i32,p2i32,p3i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_f_get_uniform_location_WebGL2RenderingContext"](p0i32,p1i32,p2i32,p3i32);
 /******/ 					},
 /******/ 					"__wbindgen_throw": function(p0i32,p1i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbindgen_throw"](p0i32,p1i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbindgen_throw"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__wbindgen_rethrow": function(p0i32) {
-/******/ 						return installedModules["./wasm/client.js"].exports["__wbindgen_rethrow"](p0i32);
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbindgen_rethrow"](p0i32);
+/******/ 					},
+/******/ 					"__wbg_globalThis_1c2aa6db3ecb073e": function() {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_globalThis_1c2aa6db3ecb073e"]();
+/******/ 					},
+/******/ 					"__wbg_self_e5cdcdef79894248": function() {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_self_e5cdcdef79894248"]();
+/******/ 					},
+/******/ 					"__wbg_window_44ec8ac43884a4cf": function() {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_window_44ec8ac43884a4cf"]();
+/******/ 					},
+/******/ 					"__wbg_global_c9abcb94a14733fe": function() {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_global_c9abcb94a14733fe"]();
+/******/ 					},
+/******/ 					"__wbindgen_is_undefined": function(p0i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbindgen_is_undefined"](p0i32);
+/******/ 					},
+/******/ 					"__wbg_newnoargs_a9cd98b36c38f53e": function(p0i32,p1i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_newnoargs_a9cd98b36c38f53e"](p0i32,p1i32);
+/******/ 					},
+/******/ 					"__wbg_call_222be890f6f564bb": function(p0i32,p1i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__wbg_call_222be890f6f564bb"](p0i32,p1i32);
+/******/ 					},
+/******/ 					"__widl_instanceof_Window": function(p0i32) {
+/******/ 						return installedModules["./wasm/game.js"].exports["__widl_instanceof_Window"](p0i32);
 /******/ 					}
 /******/ 				}
 /******/ 			};
@@ -293,6 +317,8 @@
 /******/ 				}
 /******/ 				script.src = jsonpScriptSrc(chunkId);
 /******/
+/******/ 				// create error before stack unwound to get useful stacktrace later
+/******/ 				var error = new Error();
 /******/ 				onScriptComplete = function (event) {
 /******/ 					// avoid mem leaks in IE.
 /******/ 					script.onerror = script.onload = null;
@@ -302,7 +328,8 @@
 /******/ 						if(chunk) {
 /******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
 /******/ 							var realSrc = event && event.target && event.target.src;
-/******/ 							var error = new Error('Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')');
+/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 							error.name = 'ChunkLoadError';
 /******/ 							error.type = errorType;
 /******/ 							error.request = realSrc;
 /******/ 							chunk[1](error);
@@ -320,7 +347,7 @@
 /******/
 /******/ 		// Fetch + compile chunk loading for webassembly
 /******/
-/******/ 		var wasmModules = {"1":["./wasm/client_bg.wasm"]}[chunkId] || [];
+/******/ 		var wasmModules = {"1":["./wasm/game_bg.wasm"]}[chunkId] || [];
 /******/
 /******/ 		wasmModules.forEach(function(wasmModuleId) {
 /******/ 			var installedWasmModuleData = installedWasmModules[wasmModuleId];
@@ -330,7 +357,7 @@
 /******/ 				promises.push(installedWasmModuleData);
 /******/ 			else {
 /******/ 				var importObject = wasmImportObjects[wasmModuleId]();
-/******/ 				var req = fetch(__webpack_require__.p + "" + {"./wasm/client_bg.wasm":"04c1ce63390be2f06494"}[wasmModuleId] + ".module.wasm");
+/******/ 				var req = fetch(__webpack_require__.p + "" + {"./wasm/game_bg.wasm":"b2fadfe772ed7b97dc68"}[wasmModuleId] + ".module.wasm");
 /******/ 				var promise;
 /******/ 				if(importObject instanceof Promise && typeof WebAssembly.compileStreaming === 'function') {
 /******/ 					promise = Promise.all([WebAssembly.compileStreaming(req), importObject]).then(function(items) {
@@ -431,7 +458,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("(async () => {\r\n    const webGL = await Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./wasm/client.js */ \"./wasm/client.js\"));\r\n\r\n    const Engine = webGL.run();\r\n\r\n    const renderLoop = () => {\r\n        fps.render();\r\n        Engine.tick();\r\n        requestAnimationFrame(renderLoop);\r\n    }\r\n\r\n    var canvas = document.getElementById('canvas');\r\n\r\n    document.addEventListener('mousedown', updateMouse, false);\r\n    document.addEventListener('mouseup', updateMouse, false);\r\n    document.addEventListener('mousemove', updateMouse, false);\r\n    document.addEventListener('wheel', updateScroll, false);\r\n    document.addEventListener('keydown', keyDown, false);\r\n    document.addEventListener('keyup', keyUp, false);\r\n\r\n    function updateMouse(e) {\r\n        if (e.metaKey)\r\n            Engine.mouse_click(e.buttons, e.movementX, e.movementY);\r\n        else\r\n            Engine.mouse_move(e.buttons, e.movementX, e.movementY);\r\n    }\r\n    function updateScroll(e) { Engine.mouse_scroll(e.deltaY); }\r\n    function keyDown(e) { Engine.key_down(e.keyCode); }\r\n    function keyUp(e) { Engine.key_up(e.keyCode); }\r\n\r\n    requestAnimationFrame(renderLoop);\r\n})();\r\n\r\nconst fps = new class {\r\n  constructor() {\r\n    this.fps = document.getElementById(\"fps\");\r\n    this.frames = [];\r\n    this.lastFrameTimeStamp = performance.now();\r\n  }\r\n\r\n  render() {\r\n    // Convert the delta time since the last frame render into a measure\r\n    // of frames per second.\r\n    const now = performance.now();\r\n    const delta = now - this.lastFrameTimeStamp;\r\n    this.lastFrameTimeStamp = now;\r\n    const fps = 1 / delta * 1000;\r\n\r\n    // Save only the latest 100 timings.\r\n    this.frames.push(fps);\r\n    if (this.frames.length > 100) {\r\n      this.frames.shift();\r\n    }\r\n\r\n    // Find the max, min, and mean of our 100 latest timings.\r\n    let min = Infinity;\r\n    let max = -Infinity;\r\n    let sum = 0;\r\n    for (let i = 0; i < this.frames.length; i++) {\r\n      sum += this.frames[i];\r\n      min = Math.min(this.frames[i], min);\r\n      max = Math.max(this.frames[i], max);\r\n    }\r\n    let mean = sum / this.frames.length;\r\n\r\n    // Render the statistics.\r\n    this.fps.innerHTML = `\r\nFrames per Second:<br>\r\n         latest = ${Math.round(fps)}<br>\r\navg of last 100 = ${Math.round(mean)}<br>\r\nmin of last 100 = ${Math.round(min)}<br>\r\nmax of last 100 = ${Math.round(max)}<br>\r\n`;\r\n  }\r\n};\n\n//# sourceURL=webpack:///./index.js?");
+eval("(async () => {\n    const webGL = await Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./wasm/game.js */ \"./wasm/game.js\"));\n\n    const Game = webGL.run('canvas');\n\n    const renderLoop = () => {\n        fps.render();\n        Game.tick();\n        requestAnimationFrame(renderLoop);\n    }\n\n    document.addEventListener('mousedown', mouseDown, false);\n    document.addEventListener('mouseup', mouseUp, false);\n    document.addEventListener('mousemove', mouseMove, false);\n    document.addEventListener('wheel', updateScroll, false);\n    document.addEventListener('keydown', keyDown, false);\n    document.addEventListener('keyup', keyUp, false);\n\n    function mouseMove(e) { Game.js_mouse_move(e.screenX, e.screenY, e.movementX, e.movementY); }\n    function mouseDown(e) { Game.js_mouse_press(e.button, e.buttons, e.screenX, e.screenY); }\n    function mouseUp(e) { Game.js_mouse_release(e.button, e.buttons, e.screenX, e.screenY); }\n    function updateScroll(e) { Game.js_mouse_scroll(e.deltaY); }\n    function keyDown(e) { Game.js_key_down(e.keyCode); }\n    function keyUp(e) { Game.js_key_up(e.keyCode); }\n\n    requestAnimationFrame(renderLoop);\n})();\n\nconst fps = new class {\n  constructor() {\n    this.fps = document.getElementById(\"fps\");\n    this.frames = [];\n    this.lastFrameTimeStamp = performance.now();\n  }\n\n  render() {\n    // Convert the delta time since the last frame render into a measure\n    // of frames per second.\n    const now = performance.now();\n    const delta = now - this.lastFrameTimeStamp;\n    this.lastFrameTimeStamp = now;\n    const fps = 1 / delta * 1000;\n\n    // Save only the latest 100 timings.\n    this.frames.push(fps);\n    if (this.frames.length > 100) {\n      this.frames.shift();\n    }\n\n    // Find the max, min, and mean of our 100 latest timings.\n    let min = Infinity;\n    let max = -Infinity;\n    let sum = 0;\n    for (let i = 0; i < this.frames.length; i++) {\n      sum += this.frames[i];\n      min = Math.min(this.frames[i], min);\n      max = Math.max(this.frames[i], max);\n    }\n    let mean = sum / this.frames.length;\n\n    // Render the statistics.\n    this.fps.innerHTML = `\nFrames per Second:<br>\n         latest = ${Math.round(fps)}<br>\navg of last 100 = ${Math.round(mean)}<br>\nmin of last 100 = ${Math.round(min)}<br>\nmax of last 100 = ${Math.round(max)}<br>\n`;\n  }\n};\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ })
 
